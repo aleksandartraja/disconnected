@@ -1,0 +1,11 @@
+﻿<footer>
+    <div class="page-footer container">
+        <span class="pull-left">{{footer.copyright}}&nbsp;</span>
+        <div class="pull-left">
+            <span ng-repeat="link in footer.links track by $index" class="footer_link">
+                <span class="divider">|</span>
+                <a ng-href="link.url">{{link.title}}</a>
+            </span>
+        </div>
+    </div>
+</footer>

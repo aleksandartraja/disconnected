@@ -1,0 +1,18 @@
+﻿<div class="home">
+    <h1 ng-bind="message"></h1>
+    <p>The current log level is: <strong ng-bind="logLevel"></strong></p>
+    <example message="exampleMessage"></example>
+    
+    
+    <div bindonce class="article-list">
+        <div ng-show="articles == null">Retrieving articles...</div>
+        <div ng-show="articles != null && articles.length == 0">No articles found.</div>
+        <div ng-show="articles != null && articles.length > 0">
+            <ul ng-repeat='article in articles'>
+                <li><a ui-sref="article({id: article.id})">{{article.title}}</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>

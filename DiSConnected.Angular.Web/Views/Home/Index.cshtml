@@ -1,0 +1,47 @@
+﻿@using System.Web.Optimization;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="app" lang="en">
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
+    <title ng-bind="title"> -- </title>
+    @Styles.Render("~/Content/style")
+</head>
+<body>
+    <div ui-view></div>
+    @Scripts.Render("~/bundles/scripts")
+    @Scripts.Render("~/bundles/templates")
+    <script>
+    (function() {
+        'use strict';
+
+        // ConfigProvider provides environment-specific variables to the Angular
+        // SPA via .NET Web.config transform mechanisms
+        function Config() {
+            this.$get = function() {
+                return {
+                    logLevel: '@ViewBag.LogLevel',
+                    articleEndpoint: '@ViewBag.ArticleEndpoint',
+                    siteEndpoint: '@ViewBag.SiteEndpoint'
+            };
+        };
+    }
+
+        // Define our app module
+        // (Here, since we needed to define our ConfigProvider here anyhow)
+        angular
+            .module('app', ['ui.router', 'ngResource', 'ngSanitize', 'ngAnimate', 'ngTouch'])
+            .provider('Config', Config);
+    })();
+    </script>
+    @Scripts.Render("~/bundles/app")
+</body>
+</html>

@@ -1,0 +1,9 @@
+﻿<div class="article">
+    <div ng-show="!article" class="article-retrieving">Retrieving article...</div>
+    <div ng-show="!!article" class="article-type_{{article.type}}">
+        <img ng-src="{{article.icon}}"/>
+        <h1>{{article.title}}</h1>
+        <h2>{{article.summary}}</h2>
+        <span ng-bind-html="article.text" />
+    </div>
+</div>

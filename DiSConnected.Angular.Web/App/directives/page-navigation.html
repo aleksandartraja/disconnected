@@ -1,0 +1,16 @@
+﻿<nav>
+    <div class="page-navigation">
+        
+        <!-- Example A tag usages... -->
+        <!-- use either normal href's -->
+        <!--<a href="/subsection1/">Subsection 1</a>-->
+        <!-- or state-based ui-sref's, when convenient -->
+        <!--<a ui-sref="subsection2.page()">Subsection 2</a>-->
+
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-repeat="link in navigation.links">
+                <a href="{{link.url}}">{{link.title}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
